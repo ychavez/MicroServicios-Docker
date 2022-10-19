@@ -1,3 +1,6 @@
+using Catalog.Api.Data;
+using Catalog.Api.Respositories;
+
 namespace Catalog.Api
 {
     public class Program
@@ -12,6 +15,9 @@ namespace Catalog.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ICatalogService,CatalogService>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 

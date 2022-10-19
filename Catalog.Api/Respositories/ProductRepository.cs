@@ -25,6 +25,8 @@ namespace Catalog.Api.Respositories
 
             DeleteResult deleteResult =
                 await catalogService.Products.DeleteOneAsync(filter);
+
+          
           
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
@@ -41,9 +43,7 @@ namespace Catalog.Api.Respositories
 
         public async Task<bool> Updateproduct(Product product)
         {
-            var updateResult =
-                await
-                catalogService.Products.ReplaceOneAsync(filter: p => p.Id == product.Id, replacement: product);
+            var updateResult =  await catalogService.Products.ReplaceOneAsync(filter: p => p.Id == product.Id, replacement: product);
 
             return updateResult.IsAcknowledged && updateResult.ModifiedCount > 0;
         }

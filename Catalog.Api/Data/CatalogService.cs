@@ -19,8 +19,6 @@ namespace Catalog.Api.Data
 
             Products = database.GetCollection<Product>
                 (configuration.GetValue<string>("DatabaseSettings:CollectionName"));
-
-
         }
     }
 }
