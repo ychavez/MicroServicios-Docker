@@ -23,7 +23,7 @@ namespace Ordering.Application.Behaviours
             {
 
                 var requestName = typeof(TRequest).Name;
-                logger.Log(ex, $"Excepcion no controlada para la peticion {requestName}.");
+                logger.LogError(ex, $"Excepcion no controlada para la peticion {requestName}.");
                 throw;
             }
         }
