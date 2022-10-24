@@ -11,5 +11,8 @@ services:
       context: .
       dockerfile: Services/Catalog/Catalog.Api/Dockerfile
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+
 volumes:
   mongo_data:

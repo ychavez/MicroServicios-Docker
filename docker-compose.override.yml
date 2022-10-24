@@ -15,3 +15,10 @@ services:
     ports:
       - "80"
 
+  orderdb:
+    container_name: "orderdb"
+    environment:
+      ACCEPT_EULA : Y
+      MSSQL_SA_PASSWORD: Impr0v1ng!
+    ports:
+      - 1433:1433   

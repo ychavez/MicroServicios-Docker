@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Ordering.Domain.Common;
+using Ordering.Domain.Entities;
 using System.Linq.Expressions;
 
 namespace Ordering.Infrastructure.Persistence
@@ -13,6 +14,7 @@ namespace Ordering.Infrastructure.Persistence
 
         }
 
+        public DbSet<Order>  Orders { get; set; }
 
         /// funcionalidad para poner en automatico los campos de auditoria
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
