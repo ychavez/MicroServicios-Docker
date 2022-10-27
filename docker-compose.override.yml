@@ -22,3 +22,9 @@ services:
       MSSQL_SA_PASSWORD: Impr0v1ng!
     ports:
       - 1433:1433   
+  ordering.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

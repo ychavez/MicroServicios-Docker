@@ -11,7 +11,8 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
                 .WithMessage("El UserName no puede ser vacion no manche XD")
                 .MinimumLength(3)
                 .WithMessage("El tamaño debe de ser mayor a 3")
-                .MaximumLength(10);
+                .MaximumLength(10)
+                .EmailAddress();
         }
     }
 }
