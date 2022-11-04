@@ -20,6 +20,23 @@ services:
       context: .
       dockerfile: Services/Ordering/Ordering.Api/Dockerfile
 
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.Api/Dockerfile
+
+  existance.grpc:
+    image: ${DOCKER_REGISTRY-}existancegrpc
+    build:
+      context: .
+      dockerfile: Services/Existance/Existance.Grpc/Dockerfile
+  
+  basketdb:
+    image: redis:alpine
+
 volumes:
   mongo_data:
+
+
 

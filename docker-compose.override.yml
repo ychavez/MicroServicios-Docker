@@ -28,3 +28,28 @@ services:
     ports:
       - "80"
 
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - GrpcSettings__HostAddress=http://existance.grpc:5238
+      - CacheSettings__ConnectionString=basketdb:6379
+    ports:
+      - "80"
+
+
+  existance.grpc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  basketdb:
+    container_name: basketdb
+    ports:
+      - 6379:6379
