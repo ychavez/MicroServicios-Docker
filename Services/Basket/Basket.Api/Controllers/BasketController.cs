@@ -26,5 +26,26 @@ namespace Basket.Api.Controllers
         }
 
 
+        [HttpPost]
+
+        public async Task<ActionResult<ShopingCart>> UpdateBasket([FromBody] ShopingCart shopingCart)
+        {
+
+            foreach (var item in shopingCart.shoppingCartItems)
+            {
+              var existance = existanceService.CheckExistance(new CheckExistanceRequest { Id = item.ProductId });
+                if (existance.Existance < item.Quantity)
+                {
+                    throw new Exception("No hay existencia de este articulo");
+                }
+            } 
+
+            await basketReposiotory.UpdateBasket(shopingCart);
+
+            return Ok(shopingCart);
+
+        }
+
+
     }
 }
